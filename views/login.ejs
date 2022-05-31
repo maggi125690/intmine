@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
+
+        <!-- Bootstrap css link -->
+        <link rel="stylesheet" href="../node/bootstrap/dist/css/bootstrap.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+        <!-- Main css link -->
+        <link rel="stylesheet" href="../public/css/style.css">
+
+        <title>ProfitTraders</title>
+    </head>
+    <body>
+        <!-- Nav-bar -->
+        <%- include('partial/header') %>
+        
+
+
+        <div class="container-fluid general-head-section">
+            <div class="container">
+                <div class="row back-shadow d-flex justify-content-center">
+    
+                    <!-- Welcome container -->
+                    <div class="col-sm-12 col-md-5 col-lg-4 sign-pad">
+                        <div class="welcome-container">
+                            <p class="section-large-txt inv-light">Welcome Friend!</p>
+                            <p class="normal-txt inv-light">
+                                Please log into your dashboard with your information.
+                            </p>
+                            <p class="normal-txt inv-light">
+                                Contact us at InterestMiners@gmail.com for more informations.
+                            </p>
+                            <a href="/users/register" class="sign-btn">Sign Up</a>
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- Sign container -->
+                    <div class="col-sm-12 col-md-6 col-lg-4 sign-pad">
+                        <div class="sign-container">
+                            <p class="section-large-txt">Sign Into InterestMiners</p>
+                            <!-- <div class="icon-container">
+                                <div class="icon-wrap"><img src="../public/Image/sign/facebook-logo.png" alt="" srcset="" class="img-fluid"></div>
+                                <div class="icon-wrap"><img src="../public/Image/sign/google-letter-logo.png" alt="" srcset="" class="img-fluid"></div>
+                                <div class="icon-wrap"><img src="../public/Image/sign/twitter.png" alt="" srcset="" class="img-fluid"></div>
+                            </div> -->
+                            <p class="sign-txt normal-txt">Please input details to access dashboard</p>
+                            
+                            <!-- Error messages -->
+                            <%- include('partial/messages') %>
+                            <!-- Input form section -->
+                            <form action="/users/login" method="POST">
+                                <div class="form-group">
+                                    <div class="input-icon-wrap"><img src="../public/Image/sign/email.png" alt="" srcset="" class="img-fluid"></div>
+                                    <input type="email" id="email" name="email" class="form-control form-input" placeholder="Enter Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-icon-wrap input-wrap-shift"><img src="../public/Image/sign/lock.png" alt="" srcset="" class="img-fluid"></div>
+                                    <div style="display: flex;flex-direction: row;">
+                                        <input type="password" id="pass" name="password" class="form-control form-input" placeholder="Enter Password" required>
+                                        <span id="visiblity-toggle" class="material-icons-outlined">visibility</span>
+                                    </div>
+                                </div>
+                                <!-- <div class="forgot-wrap"><a href="#" class="forgot-link">Forgot Password?</a></div> -->
+                                <button type="submit"  class="btn btn-wrap1">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                
+                <div class="col-12 normal-txt" style="margin: 5em 0 3em 0;text-align: center;">© InterestMiners 2020-2022. All rights reserved.</div>
+    
+            </div>
+        </div>
+
+
+
+    </body>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="../public/javascript/script.js"></script>
+
+    <!-- Option 1: Bootstrap Bundle with JQuery -->
+    <script src="../public/javascript/jquery.js"></script>
+    <script src="../node/bootstrap/dist/js/bootstrap.js"></script>
+
+
+    <script>
+        const pass = document.querySelector('#pass')
+        const btn = document.querySelector('#visiblity-toggle')
+
+        btn.addEventListener('click', () => {
+            if (pass.type === "text") {
+                pass.type = "password";
+                btn.innerHTML = "visibility";
+            } else {
+                pass.type = "text";
+                btn.innerHTML = "visibility_off";
+
+            }
+        })
+    </script>
+    
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
+
+        <!-- Bootstrap css link -->
+        <link rel="stylesheet" href="../node/bootstrap/dist/css/bootstrap.css">
+        <!-- Main css link -->
+        <link rel="stylesheet" href="../public/css/style.css">
+
+        <title>ProfitTraders</title>
+    </head>
+    <body>
+        <!-- Nav-bar -->
+        <%- include('dashboard/partial/head') %>
+
+
+        <!-- Name and balance container -->
+        <section class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="user-info-con">
+                        <p class="card-lg-txt">Welcome, <%= user.name %></p>
+                        <h1 class="mb-3 heading">$ 0.00</h1>
+                        <p class="normal-txt">Invest and get your guaranteed profit in 5 days.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="dash-sep-line col-12"></div>
+            </div>
+        </div>
+
+
+
+        <!-- Deposit container -->
+        <section class="container" style="margin-bottom: 2em;">
+            <div class="row">
+                <div class="col-12">
+                    <div class="deposit-wrap">
+                        <p class="dep-txt">DEPOSIT</p>
+                        <p class="dep-bot-txt" style="font-weight: 600;">Choose from our deposit method below</p>
+                    </div>
+                </div>
+
+                    
+                <div class="col-sm-12 col-md-6 col-lg-3 p-2">
+                    <div class="dep-card-wrap">
+                        <div class="dep-card-top-con">
+                            <div class="dep-card-img"><img src="../../public/image/foot/bitcoin.png" alt="" srcset="" class="img-fluid"></div>
+                            <p class="card-lg-txt p-2">Deposit BTC</p>
+                        </div>
+                        <div class="dep-card-bot-con">
+                            <div class="crypto-price"><p class="btc-txt">1 BTC = €<span id="btc-price">----</span></p></div>
+                            <div class="fund-btn fund-2 normal-txt" onclick="document.location.href='/deposit/btc/'">Fund</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-3 p-2">
+                    <div class="dep-card-wrap">
+                        <div class="dep-card-top-con">
+                            <div class="dep-card-img"><img src="../../public/image/foot/ethereum.png" alt="" srcset="" class="img-fluid"></div>
+                            <p class="card-lg-txt p-2">Deposit ETH</p>
+                        </div>
+                        <div class="dep-card-bot-con">
+                            <div class="crypto-price"><p class="eth-txt">1 ETH = €<span id="eth-price">----</span></p></div>
+                            <div class="fund-btn fund-3 normal-txt" onclick="document.location.href='/deposit/eth/'">Fund</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 col-md-6 col-lg-3 p-2">
+                    <div class="dep-card-wrap">
+                        <div class="dep-card-top-con">
+                            <div class="dep-card-img"><img src="../../public/image/foot/btc-cash.png" alt="" srcset="" class="img-fluid"></div>
+                            <p class="card-lg-txt p-2">Deposit BCH</p>
+                        </div>
+                        <div class="dep-card-bot-con">
+                            <div class="crypto-price"><p class="bch-txt">1 BCH = €<span id="bch-price">----</span></p></div>
+                            <div class="fund-btn fund-1 normal-txt" onclick="document.location.href='/deposit/bch/'">Fund</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-3 p-2">
+                    <div class="dep-card-wrap">
+                        <div class="dep-card-top-con">
+                            <div class="dep-card-img"><img src="../../public/image/foot/Litecoin.png" alt="" srcset="" class="img-fluid"></div>
+                            <p class="card-lg-txt p-2">Deposit LTC</p>
+                        </div>
+                        <div class="dep-card-bot-con">
+                            <div class="crypto-price"><p class="lte-txt">1 LTE = €<span id="lte-price">----</span></p></div>
+                            <div class="fund-btn fund-4 normal-txt" onclick="document.location.href='/deposit/lte/'">Fund</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="dash-sep-line col-12"></div>
+            </div>
+        </div>
+
+
+
+        <section class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!--Currency price widget container-->
+                        <div class="widget" style="margin-top: 20px;">
+                            <h5 style="padding-bottom: 10px;padding-left: 7.5px;">Streaming data</h5>
+                            <!-- Cryptocurrency Price Widget -->
+                            <script>
+                                !function(){
+                                    var e=document.getElementsByTagName("script"),t=e[e.length-1],n=document.createElement("script");
+                                    function r(){
+                                        var e=crCryptocoinPriceWidget.init({base:"USD,EUR,CNY,GBP",items:"BTC,ETH,LTC,XMR,DASH",backgroundColor:"FFFFFF",streaming:"1",rounded:"1",boxShadow:"1",border:"1"});
+                                        t.parentNode.insertBefore(e,t)}n.src="https://co-in.io/widget/pricelist.js?items=BTC%2CETH%2CLTC%2CXMR%2CDASH",n.async=!0,n.readyState?n.onreadystatechange=function(){
+                                            "loaded"!=n.readyState&&"complete"!=n.readyState||(n.onreadystatechange=null,r())}:n.onload=function(){r()},t.parentNode.insertBefore(n,null)}();
+                            </script>
+                            <a href="https://currencyrate.today/" style="padding-top: 3px;">Currency Converter</a>
+                            <!-- /Cryptocurrency Price Widget -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- Footer -->
+        <%- include('dashboard/partial/footer') %>
+
+
+    </body>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="../public/javascript/script.js"></script>
+
+    <!-- Option 1: Bootstrap Bundle with JQuery -->
+    <script src="../public/javascript/jquery.js"></script>
+    <script src="../node/bootstrap/dist/js/bootstrap.js"></script>
+
+
+    <!-- Price of the BTC -->
+    <script>
+        let btcws = new WebSocket('wss://stream.binance.com:9443/ws/btceur@trade');
+        let btcstackPriceElement = document.getElementById('btc-price');
+        let btclastPrice = null;
+
+        btcws.onmessage = (event) => {
+            let btcstactobject = JSON.parse(event.data);
+            btcstackPriceElement.innerText = parseFloat(btcstactobject.p).toFixed(2);
+            btcstackPriceElement.style.color = '#f4d933';
+            btclastPrice = price;
+        };
+    </script>
+
+
+    <!-- Price of the ETH -->
+    <script>
+        let ethws = new WebSocket('wss://stream.binance.com:9443/ws/etheur@trade');
+        let ethstackPriceElement = document.getElementById('eth-price');
+        let ethlastPrice = null;
+
+        ethws.onmessage = (event) => {
+            let ethstactobject = JSON.parse(event.data);
+            ethstackPriceElement.innerText = parseFloat(ethstactobject.p).toFixed(2);
+            ethstackPriceElement.style.color = '#14044d';
+            ethlastPrice = price;
+        };
+    </script>
+
+    <!-- Price of the BCH -->
+    <script>
+        let ws = new WebSocket('wss://stream.binance.com:9443/ws/bcheur@trade');
+        let stackPriceElement = document.getElementById('bch-price');
+        let lastPrice = null;
+
+        bchws.onmessage = (event) => {
+            let stactobject = JSON.parse(event.data);
+            stackPriceElement.innerText = parseFloat(stactobject.p).toFixed(2);
+            stackPriceElement.style.color = '#11b38d';
+            lastPrice = price;
+        };
+    </script>
+
+    <!-- Price of the LTE -->
+    <script>
+        let ltews = new WebSocket('wss://stream.binance.com:9443/ws/lteeur@trade');
+        let ltestackPriceElement = document.getElementById('lte-price');
+        let ltelastPrice = null;
+
+        ws.onmessage = (event) => {
+            let ltestactobject = JSON.parse(event.data);
+            ltestackPriceElement.innerText = parseFloat(ltestactobject.p).toFixed(2);
+            ltestackPriceElement.style.color = '#716b94';
+            ltelastPrice = price;
+        };
+    </script>
+
+
+
+
+
+
+    <!-- Dashboard display chart script -->
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    
+</html>

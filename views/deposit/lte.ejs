@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
+
+        <!-- Bootstrap css link -->
+        <link rel="stylesheet" href="../../node/bootstrap/dist/css/bootstrap.css">
+        <!-- Main css link -->
+        <link rel="stylesheet" href="../../public/css/style.css">
+
+        <title>ProfitTraders</title>
+    </head>
+    <body>
+        
+        <!-- Header container -->
+        <section class="container-fluid dep-head">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="dep-header-con">
+                            <!-- Exit button -->
+                            <div><a class="exit-btn" href='/dashboard/'>&#8592;</a></div>
+                            <div class="dep-heading-wrap"><h1 class="mb-3 dep-heading">Deposit LTE</h1></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- Crypto details -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-8 col-lg-6 mx-auto">
+                        <div class="sendMonCon">
+                            <p class="sendMonTxt">Sending details of method Litecoin</p>
+                            <div class="crypto-scan-wrap"><div class="crypto-scan"></div></div>
+                            <p class="copyTopTxt">Send a minimum of $750 of Litecoin to Address : </p>
+                            <div class="copySub">
+                                <label id="api_token" class="copySubTxt"></label>
+                            </div>
+                            <button id="copy_token" class="api-copy-btn">
+                                <span class="api-copy-btn__tooltip" id="copy_token_tooltip">Copy to clipboard</span>
+                                Copy Address
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-8 col-lg-6 mx-auto">
+                        <div class="sendMonCon">
+                            <p class="sendMonTxt">Deposit form</p>
+                            <p class="fundAdv">Please input the correct details to avoid errors in transaction :</p>
+                            <form action="https://formcarry.com/s/XfQVQqLttUg" method="POST" accept-charset="UTF-8" > 
+                                <input type="name" name="BCH_user_name" class="email" placeholder="Full Name" required>
+                                <input type="file" class="choose-file" name="BCH_user_file" id="impFile" required>
+                                <div class="image-preview" id="image-preview">
+                                    <img src="" alt="Image Preview" class="image-preview__image" required>
+                                    <span class="image-preview__default-text">Image Preview</span>
+                                </div>
+                                <div class="btn"><button  value="submit" name="submit" class="submit-btn" style="cursor: pointer;">Submit</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+
+        
+        <!-- Footer -->
+        <%- include('../../dashboard/partial/footer') %>
+
+
+
+
+        
+
+        <!-- Option 1: Bootstrap Bundle with JQuery -->
+        <script src="../../public/javascript/jquery.js"></script>
+        <script src="../../node/bootstrap/dist/js/bootstrap.js"></script>
+
+        <script>
+    
+            let copyTokenBtn = document.getElementById('copy_token');
+    
+            copyTokenBtn.addEventListener('click', function() {
+                let apiToken = document.getElementById('api_token').innerText;
+                let copyTokenTooltip = document.getElementById('copy_token_tooltip');
+                const el = document.createElement('input');
+                
+                el.value = apiToken;
+                el.setAttribute('readonly', '');
+                el.style.position = 'absolute';
+                el.style.left = '-9999px';
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
+                
+                copyTokenTooltip.innerHTML = "Copied ✓";  
+            });
+    
+            copyTokenBtn.addEventListener('mouseout', function() {
+                let copyTokenTooltip = document.getElementById('copy_token_tooltip');
+                copyTokenTooltip.innerHTML = "Copy to clipboard";
+            })
+    
+    
+            const impFile = document.getElementById("impFile");
+            const previewContainer = document.getElementById("image-preview");
+            const previewImage = previewContainer.querySelector(".image-preview__image");
+            const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+    
+            impFile.addEventListener("change", function(){
+                const file = this.files[0];
+                
+                if(file){
+                    const reader = new FileReader();
+    
+                    previewDefaultText.style.display = "none";
+                    previewImage.style.display = "block";
+    
+                    reader.addEventListener("load", function(){
+                        previewImage.setAttribute("src", this.result);
+                    });
+    
+                    reader.readAsDataURL(file);
+    
+                }else{
+                    previewDefaultText.style.display = "block";
+                    previewImage.style.display = "none";
+                    previewImage.setAttribute("src", "");
+                }
+    
+            });
+            
+        </script>
+    
+</html>

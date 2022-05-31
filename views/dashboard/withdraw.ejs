@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
+
+        <!-- Bootstrap css link -->
+        <link rel="stylesheet" href="../../../node/bootstrap/dist/css/bootstrap.css">
+        <!-- Main css link -->
+        <link rel="stylesheet" href="../../../public/css/style.css">
+
+        <title>ProfitTraders</title>
+    </head>
+    <body>
+        
+
+        <!-- Withdrawal drop down container -->
+        <div class="with-opp-con" id="with-opp-btc">
+            <div class="with-top-opp" onclick="closewithbtc()"></div>
+            <div class="with-mid-opp">
+                <div class="with-side-con" onclick="closewithbtc()"></div>
+                <div class="with-main-con">
+                    <div class="exit-with-con" onclick="closewithbtc()">&#x2715;</div>
+                    <p class="with-fundAdv">Payment will be processed through selected method :</p>
+                    <form action="https://formcarry.com/s/WKaGorlKVAB" method="POST" accept-charset="UTF-8">
+                        <input type="text" class="form-control input-with" name="withdraw_amount" placeholder="Amount" required>
+                        <input type="email" class="form-control input-with" name="withdraw_email" placeholder="Email" required>
+                        <input type="text" class="form-control input-with" name="withdraw_wallet_address" placeholder="Wallet Address" required>
+                        <select name="withdraw_crypto_name" class="form-control input-with">
+                            <option value="Bitcoin">Bitcoin</option>
+                        </select>
+                        <button value="submit" name="submit" class="btn-wrap" style="cursor: pointer;">Submit</button>
+                    </form>
+                </div>
+                <div class="with-side-con" onclick="closewithbtc()"></div>
+            </div>
+            <div class="with-top-opp" onclick="closewithbtc()"></div>
+        </div>
+
+        <!--  -->
+        <div class="with-opp-con" id="with-opp-bch">
+            <div class="with-top-opp" onclick="closewithbch()"></div>
+            <div class="with-mid-opp">
+                <div class="with-side-con" onclick="closewithbch()"></div>
+                <div class="with-main-con">
+                    <div class="exit-with-con" onclick="closewithbch()">&#x2715;</div>
+                    <p class="with-fundAdv">Payment will be processed through selected method :</p>
+                    <form action="https://formcarry.com/s/WKaGorlKVAB" method="POST" accept-charset="UTF-8" >
+                        <input type="text" class="form-control input-with" name="withdraw_amount" placeholder="Amount" required>
+                        <input type="email" class="form-control input-with" name="withdraw_email" placeholder="Email" required>
+                        <input type="text" class="form-control input-with" name="withdraw_wallet_address" placeholder="Wallet Address" required>
+                        <select name="withdraw_crypto_name" class="form-control input-with">
+                            <option value="Bitcoin">Bit-cash</option>
+                        </select>
+                        <button value="submit" name="submit" class="btn-wrap" style="cursor: pointer;">Submit</button>
+                    </form>
+                </div>
+                <div class="with-side-con" onclick="closewithbch()"></div>
+            </div>
+            <div class="with-top-opp" onclick="closewithbch()"></div>
+        </div>
+
+        <!--  -->
+        <div class="with-opp-con" id="with-opp-eth">
+            <div class="with-top-opp" onclick="closewitheth()"></div>
+            <div class="with-mid-opp">
+                <div class="with-side-con" onclick="closewitheth()"></div>
+                <div class="with-main-con">
+                    <div class="exit-with-con" onclick="closewitheth()">&#x2715;</div>
+                    <p class="with-fundAdv">Payment will be processed through selected method :</p>
+                    <form action="https://formcarry.com/s/WKaGorlKVAB" method="POST" accept-charset="UTF-8" >
+                        <input type="text" class="form-control input-with" name="withdraw_amount" placeholder="Amount" required>
+                        <input type="email" class="form-control input-with" name="withdraw_email" placeholder="Email" required>
+                        <input type="text" class="form-control input-with" name="withdraw_wallet_address" placeholder="Wallet Address" required>
+                        <select name="withdraw_crypto_name" class="form-control input-with">
+                            <option value="Bitcoin">Ethereum</option>
+                        </select>
+                        <button value="submit" name="submit" class="btn-wrap" style="cursor: pointer;">Submit</button>
+                    </form>
+                </div>
+                <div class="with-side-con" onclick="closewitheth()"></div>
+            </div>
+            <div class="with-top-opp" onclick="closewitheth()"></div>
+        </div>
+
+        <!--  -->
+        <div class="with-opp-con" id="with-opp-lte">
+            <div class="with-top-opp" onclick="closewithlte()"></div>
+            <div class="with-mid-opp">
+                <div class="with-side-con" onclick="closewithlte()"></div>
+                <div class="with-main-con">
+                    <div class="exit-with-con" onclick="closewithlte()">&#x2715;</div>
+                    <p class="with-fundAdv">Payment will be processed through selected method :</p>
+                    <form action="https://formcarry.com/s/WKaGorlKVAB" method="POST" accept-charset="UTF-8" >
+                        <input type="text" class="form-control input-with" name="withdraw_amount" placeholder="Amount" required>
+                        <input type="email" class="form-control input-with" name="withdraw_email" placeholder="Email" required>
+                        <input type="text" class="form-control input-with" name="withdraw_wallet_address" placeholder="Wallet Address" required>
+                        <select name="withdraw_crypto_name" class="form-control input-with">
+                            <option value="Bitcoin">Litecoin</option>
+                        </select>
+                        <button value="submit" name="submit" class="btn-wrap">Submit</button>
+                    </form>
+                </div>
+                <div class="with-side-con" onclick="closewithlte()"></div>
+            </div>
+            <div class="with-top-opp" onclick="closewithlte()"></div>
+        </div>
+
+
+        <!-- Nav-bar -->
+        <%- include('../dashboard/partial/head') %>
+
+
+        <!-- Name and balance container -->
+        <section class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-8 col-lg-7">
+                    <div class="user-info-con">
+                        <p class="card-lg-txt">Request for Withdrawal</p> 
+                        <p class="normal-txt" >
+                            ProfitTraders appreciates you for investing with us. Please do 
+                            understand the process you have undergone is a consistent one. Also think of 
+                            investing with us next time.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Withdrawal section -->
+        <section class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-8 col-lg-6 p-2 mx-auto">
+                        <div class="with-card-container">
+                            <div class="with-head-wrap align-items-center">
+                                <div class="with-img-wrap"><img src="../../public/image/foot/bitcoin.png" alt="" srcset="" class="img-fluid"></div>
+                                <p class="with-lg-txt">Withdraw Bitcoin</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Minimum Amount: </p>
+                                <p class="normal-txt">$1</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Maximum Amount: </p>
+                                <p class="normal-txt">Unlimited</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Charges (Fixed): </p>
+                                <p class="normal-txt">$0</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Charges (%): </p>
+                                <p class="normal-txt">0%</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Duration: </p>
+                                <p class="normal-txt">1 - 6 Hours</p>
+                            </div>
+                            <div class="with-btn" onclick="openwithbtc()">Request Withdrawal</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-8 col-lg-6 p-2 mx-auto">
+                        <div class="with-card-container">
+                            <div class="with-head-wrap align-items-center">
+                                <div class="with-img-wrap"><img src="../../public/image/foot/btc-cash.png" alt="" srcset="" class="img-fluid"></div>
+                                <p class="with-lg-txt">Withdraw Btc-Cash</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Minimum Amount: </p>
+                                <p class="normal-txt">$1</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Maximum Amount: </p>
+                                <p class="normal-txt">Unlimited</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Charges (Fixed): </p>
+                                <p class="normal-txt">$0</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Charges (%): </p>
+                                <p class="normal-txt">0%</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Duration: </p>
+                                <p class="normal-txt">1 - 6 Hours</p>
+                            </div>
+                            <div class="with-btn" onclick="openwithbch()">Request Withdrawal</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-8 col-lg-6 p-2 mx-auto">
+                        <div class="with-card-container">
+                            <div class="with-head-wrap align-items-center">
+                                <div class="with-img-wrap"><img src="../../public/image/foot/ethereum.png" alt="" srcset="" class="img-fluid"></div>
+                                <p class="with-lg-txt">Withdraw Ethereum</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Minimum Amount: </p>
+                                <p class="normal-txt">$1</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Maximum Amount: </p>
+                                <p class="normal-txt">Unlimited</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Charges (Fixed): </p>
+                                <p class="normal-txt">$0</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Charges (%): </p>
+                                <p class="normal-txt">0%</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Duration: </p>
+                                <p class="normal-txt">1 - 6 Hours</p>
+                            </div>
+                            <div class="with-btn" onclick="openwitheth()">Request Withdrawal</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-8 col-lg-6 p-2 mx-auto">
+                        <div class="with-card-container">
+                            <div class="with-head-wrap align-items-center">
+                                <div class="with-img-wrap"><img src="../../public/image/foot/Litecoin.png" alt="" srcset="" class="img-fluid"></div>
+                                <p class="with-lg-txt">Withdraw Litecoin</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Minimum Amount: </p>
+                                <p class="normal-txt">$1</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Maximum Amount: </p>
+                                <p class="normal-txt">Unlimited</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Charges (Fixed): </p>
+                                <p class="normal-txt">$0</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Charges (%): </p>
+                                <p class="normal-txt">0%</p>
+                            </div>
+                            <div class="with-txt">
+                                <p class="normal-txt">Duration: </p>
+                                <p class="normal-txt">1 - 6 Hours</p>
+                            </div>
+                            <div class="with-btn" onclick="openwithlte()">Request Withdrawal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        
+
+
+
+
+        
+        <!-- Footer -->
+        <%- include('../dashboard/partial/footer') %>
+
+
+    </body>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="../../../public/javascript/script.js"></script>
+
+    <!-- Option 1: Bootstrap Bundle with JQuery -->
+    <script src="../../../public/javascript/jquery.js"></script>
+    <script src="../../../node/bootstrap/dist/js/bootstrap.js"></script>
+
+</html>
