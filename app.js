@@ -71,4 +71,5 @@ app.get('/deposit/lte/', (req, res) => res.render('dashboard/deposit/lte'));
 
 
 
-app.listen(3000); 
+const PORT = process.env.PORT || 2022;
+app.listen(PORT, console.log(`Server running on PORT ${PORT}`));
